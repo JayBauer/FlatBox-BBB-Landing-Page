@@ -1,0 +1,159 @@
+section {
+  // The Solution
+  &:nth-of-type(1) {
+    position:relative;
+    @include breakpoint(large) {
+      height:rem-calc(600);
+      img {
+        padding-left:rem-calc(80);
+      }
+      .columns {
+        &:nth-of-type(1) {
+          position:relative;
+          width:rem-calc(500);
+          img {
+            position:absolute;
+            top:rem-calc(165);
+            left:rem-calc(475);
+          }
+        }
+      }
+    }
+    img {
+      position:relative;
+      @include center-both();
+    }
+    background:url('../images/main-ill.svg') no-repeat left bottom;
+    background-size:contain;
+    .columns {
+      @include breakpoint(large) {
+        height:rem-calc(500);
+      }
+    }
+    a:first-of-type {
+      margin-right:rem-calc(20);
+    }
+  }
+
+  // Lunchbox Investigation
+  &:nth-of-type(2) {
+    @include background-cover('bacteria-bg.png');
+    min-height:rem-calc(500);
+    color:$white;
+    font-weight:600;
+    h3,p {
+      line-height:1;
+      margin:0;
+    }
+  }
+
+  // Why People Love FlatBox
+  &:nth-of-type(3) {
+    @include breakpoint(small only) {
+      text-align:center;
+    }
+    $colors: #53c3c1, #bbcf30, #e7c91b, #ed66a1, #1f9ac1, #5bb146;
+    .row:nth-of-type(1) {
+      @for $i from 1 through 3 {
+        .columns:nth-of-type(#{$i}) {
+          h3 {
+            color:nth($colors, $i);
+          }
+        }
+      }
+    }
+    .row:nth-of-type(2) {
+      margin-top:rem-calc(50);
+      @for $i from 1 through 3 {
+        .columns:nth-of-type(#{$i}) {
+          h3 {
+            color:nth($colors, $i+3)
+          }
+        }
+      }
+    }
+  }
+
+  // Shop FlatBox
+  &:nth-of-type(4) {
+    text-align:center;
+    h3 {
+      margin:rem-calc(15);
+      text-transform:uppercase;
+    }
+    p {
+      line-height:1;
+    }
+    a {
+      margin-top:rem-calc(15);
+      @include breakpoint(medium only) {
+        &:first-of-type {
+          margin-right:rem-calc(20);
+        }
+      }
+    }
+  }
+
+  // Testimonials
+  &:nth-of-type(5) {
+    @include background-cover('testimonials-bg.png');
+    margin-top:rem-calc(100);
+    color:$white;
+    h2 {
+      margin:0 0 rem-calc(30) 0;
+    }
+    img {
+      margin:0 auto;
+    }
+    .row {
+      max-width:rem-calc(800);
+      margin:rem-calc(75) 0;
+    }
+  }
+
+  // Featured On
+  &:nth-of-type(6) {
+    h2 {
+      margin:rem-calc(50) 0 0 0;
+    }
+    .row {
+      @include grid-layout(2, '.columns', $grid-column-gutter);
+      @include breakpoint(medium) {
+        @include grid-layout(5, '.columns', $grid-column-gutter);
+      }
+      .columns {
+        position:relative;
+        display:block;
+        padding:rem-calc(10);
+        img {
+          display:block;
+          margin:0 auto;
+          position:relative;
+          @include center-y();
+        }
+      }
+    }
+  }
+
+  // Store location
+  &:nth-of-type(7) {
+
+  }
+
+  // No store near you
+  &:nth-of-type(8) {
+    @include background-cover('store-near-bg.png');
+    position:relative;
+    h2 {
+      color:$white;
+      text-transform:none;
+    }
+    a {
+      position:relative;
+      @include center-y();
+      @include breakpoint(small only) {
+        @include center-both();
+      }
+    }
+  }
+}

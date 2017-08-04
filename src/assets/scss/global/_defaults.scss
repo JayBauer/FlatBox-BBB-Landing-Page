@@ -1,0 +1,50 @@
+h1,h2,h3 {
+  margin:0;
+  line-height:1;
+  font-weight:600;
+}
+
+h1,h2 {
+  text-transform:uppercase;
+  span {
+    color:$turq;
+  }
+}
+
+section h2:first-child {
+  margin:rem-calc(50) 0;
+  text-align:center;
+}
+
+h3 {
+  margin:rem-calc(25) 0;
+}
+
+h4 {
+  line-height:2.1;
+  font-weight:600;
+  text-transform:uppercase;
+}
+
+a.button {
+  display:inline-block;
+  width:rem-calc(240);
+  height:rem-calc(50);
+  text-align:center;
+  vertical-align:middle;
+  border-radius:rem-calc(10);
+  color:$white;
+  h4 {
+    font-size:rem-calc(24);
+  }
+}
+
+a.yellow-button {
+  @extend .button;
+  background-color:$yellow;
+}
+
+a.green-button {
+  @extend .button;
+  background-color:$turq;
+}
