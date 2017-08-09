@@ -41,7 +41,7 @@
 //@include foundation-progress-bar;
 @include foundation-slider;
 @include foundation-sticky;
-//@include foundation-reveal;
+@include foundation-reveal;
 //@include foundation-switch;
 //@include foundation-table;
 //@include foundation-tabs;
@@ -51,8 +51,8 @@
 //@include foundation-top-bar;
 
 // Motion UI
-//@include motion-ui-transitions;
-//@include motion-ui-animations;
+@include motion-ui-transitions;
+@include motion-ui-animations;
 
 
 // Globals
@@ -65,6 +65,7 @@
 // Modules
 @import "modules/header";
 @import "modules/footer";
+@import "modules/store-locator";
 
 // Components
 @import "components/buttons";

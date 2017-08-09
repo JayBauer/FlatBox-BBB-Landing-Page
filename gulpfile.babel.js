@@ -154,5 +154,6 @@ function watch() {
   gulp.watch('src/assets/js/**/*.js').on('all', gulp.series(javascript, browser.reload));
   gulp.watch('src/assets/images/**/*').on('all', gulp.series(images, browser.reload));
   gulp.watch('src/assets/fonts/**/*').on('all', gulp.series(fonts, browser.reload));
+  gulp.watch('src/data/**/*.json').on('change', gulp.series(resetPages, pages, browser.reload));
   gulp.watch('node_modules/font-awesome/fonts/*').on('all', gulp.series(fonts, browser.reload));
 }

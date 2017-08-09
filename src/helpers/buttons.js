@@ -1,9 +1,14 @@
-module.exports = function(type,link='#') {
-  var pagelink = link.fn(this);
+module.exports = function(type,target,link) {
+  var markup = '<a href="'+link+'" ';
+
+  if (target == 'blank') {
+    markup += 'target="_blank" ';
+  }
   if (type == 'buy') {
-    return '<a href="'+pagelink+'" class="yellow-button" target="_blank"><h4>Buy Online!</h4></a>'
+    markup += 'class="yellow-button"><h4>Buy Online!</h4></a>'
   }
   else if (type == 'find') {
-    return '<a href="'+pagelink+'" class="green-button" target="_blank"><h4>Find a Store!</h4></a>'
+    markup += 'class="green-button""><h4>Find a Store!</h4></a>'
   }
+  return markup;
 }

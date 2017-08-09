@@ -3,31 +3,65 @@ section {
   &:nth-of-type(1) {
     position:relative;
     @include breakpoint(large) {
-      height:rem-calc(600);
       img {
         padding-left:rem-calc(80);
       }
-      .columns {
-        &:nth-of-type(1) {
+    }
+    .columns {
+      &:nth-of-type(1) {
+        position:relative;
+        .row {
           position:relative;
-          width:rem-calc(500);
+          max-width:rem-calc(500);
+          @include breakpoint(medium down) {
+            @include center-x();
+            margin-bottom:rem-calc(50);
+          }
+          margin:0;
+          @include center-both();
           img {
             position:absolute;
-            top:rem-calc(165);
-            left:rem-calc(475);
+            top:rem-calc(-20);
+            left:rem-calc(300);
+            @include breakpoint(medium only) {
+              left:rem-calc(375);
+            }
+            @include breakpoint(small only) {
+              width:rem-calc(80);
+              top:rem-calc(60);
+              left:rem-calc(330);
+            }
+            @include breakpoint(370 down) {
+              display:none;
+            }
+          }
+        }
+        .button {
+          @include breakpoint(500 down) {
+            display:block;
+            margin:rem-calc(20) auto;
           }
         }
       }
+      &:nth-of-type(2) {
+        background:url('../images/main-ill.svg') no-repeat left bottom;
+        background-size:contain;
+        @include breakpoint(medium down) {
+          height:rem-calc(500);
+        }
+      }
     }
-    img {
+    .orbit {
       position:relative;
       @include center-both();
     }
-    background:url('../images/main-ill.svg') no-repeat left bottom;
-    background-size:contain;
+    .orbit-slide img {
+      position:relative;
+      @include center-x();
+    }
     .columns {
       @include breakpoint(large) {
-        height:rem-calc(500);
+        height:calc(100vh - 225px);
       }
     }
     a:first-of-type {
@@ -37,18 +71,69 @@ section {
 
   // Lunchbox Investigation
   &:nth-of-type(2) {
-    @include background-cover('bacteria-bg.png');
+    @include background-cover('bacteria-bg.jpg');
     min-height:rem-calc(500);
     color:$white;
     font-weight:600;
+    position:relative;
     h3,p {
       line-height:1;
       margin:0;
+    }
+    .columns {
+      @include breakpoint(small only) {
+        text-align:center;
+      }
+      &:nth-of-type(1) {
+        @include breakpoint(large) {
+          padding-left:rem-calc(100);
+        }
+        h3 {
+          margin:rem-calc(10) 0 rem-calc(40) 0;
+        }
+      }
+      &:nth-of-type(2) {
+        img {
+          padding:0 rem-calc(10) rem-calc(10) 0;
+        }
+        p,h2 {
+          display:inline-block;
+          text-transform:none;
+        }
+        p:first-of-type {
+          position:relative;
+          top:rem-calc(15);
+          margin:rem-calc(30) 0;
+        }
+        p:nth-of-type(2) {
+          display:block;
+          margin:rem-calc(10) 0;
+        }
+        h2:nth-of-type(1) {
+          font-size:1.75rem;
+        }
+        h2:nth-of-type(2) {
+          font-size:2rem;
+          margin:rem-calc(10) 0 0 0;
+        }
+      }
+    }
+    &::after {
+      $size:100;
+      position:absolute;
+      @include center-x();
+      bottom:rem-calc(-($size/2.5));
+      width:rem-calc($size);
+      height:rem-calc($size);
+      border-radius:#{$size}px;
+      background-color:$turq;
+      z-index:-1;
     }
   }
 
   // Why People Love FlatBox
   &:nth-of-type(3) {
+    margin-top:rem-calc(50);
     @include breakpoint(small only) {
       text-align:center;
     }
@@ -77,9 +162,23 @@ section {
   // Shop FlatBox
   &:nth-of-type(4) {
     text-align:center;
+    .column {
+      img {
+        height:rem-calc(400);
+      }
+    }
     h3 {
       margin:rem-calc(15);
       text-transform:uppercase;
+      position:relative;
+      &:after {
+        position:absolute;
+        top:-4px;
+        content:'\f178';
+        font-family:FontAwesome;
+        font-size:rem-calc(30);
+        padding-left:rem-calc(10);
+      }
     }
     p {
       line-height:1;
@@ -96,18 +195,35 @@ section {
 
   // Testimonials
   &:nth-of-type(5) {
-    @include background-cover('testimonials-bg.png');
-    margin-top:rem-calc(100);
+    @include background-cover('testimonials-bg.jpg');
+    margin-top:rem-calc(140);
     color:$white;
+    text-align:center;
+    position:relative;
     h2 {
-      margin:0 0 rem-calc(30) 0;
+      margin:rem-calc(50) 0 rem-calc(30) 0;
     }
     img {
       margin:0 auto;
     }
+    p {
+      text-align:left;
+      margin:rem-calc(25) 0;
+    }
     .row {
       max-width:rem-calc(800);
       margin:rem-calc(75) 0;
+    }
+    &::before {
+      $size:100;
+      position:absolute;
+      @include center-x();
+      top:rem-calc(-($size/2.5));
+      width:rem-calc($size);
+      height:rem-calc($size);
+      border-radius:#{$size}px;
+      background-color:$yellow;
+      z-index:-1;
     }
   }
 
@@ -137,7 +253,14 @@ section {
 
   // Store location
   &:nth-of-type(7) {
-
+    text-align:center;
+    h2 {
+      margin-bottom:rem-calc(10);
+    }
+    h4 {
+      text-transform:none;
+      font-weight:400;
+    }
   }
 
   // No store near you
@@ -151,7 +274,7 @@ section {
     a {
       position:relative;
       @include center-y();
-      @include breakpoint(small only) {
+      @include breakpoint(medium down) {
         @include center-both();
       }
     }

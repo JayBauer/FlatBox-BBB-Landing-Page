@@ -1,51 +1,40 @@
----
-logos: [
-  Good Morning America,
-  BT,
-  The New York Times,
-  Fox Chicago,
-  Newsday,
-  Good Housekeeping,
-  Today Show,
-  The Miami Herald,
-  Local 10 News,
-  The Gourmet Retailer
-]
----
-
 <section class="row expanded collapse">
-    <div class="small-12 large-6 large-push-6 columns">
-      <h1>The Lunchbox Solution <br /><span>for Today's Problems.</span></h1>
-      {{#image 'solution-ill.svg' 'Solution Illustration'}}{{/image}}
-      <p>
-        usce bibendum tempus risus sit amet vestibulum. Donec hendrerit et dui sit amet ornare. Phasellus finibus odio diam, non mollis ipsum auctor sit amet.
-      </p>
-      {{#buttons 'find'}}#{{/buttons}}{{#buttons 'buy'}}#{{/buttons}}
+  <div class="small-12 large-6 large-push-6 columns">
+    <div class="row">
+    <h1>The Lunchbox Solution <br /><span>for Today's Problems.</span></h1> {{#image 'solution-ill.svg' 'Solution Illustration'}}{{/image}}
+    <p>
+      Just unzip the lunch box flat and watch it turn into a placemat in seconds, creating a germ-free barrier and clean-eating surface. Made from neoprene, FlatBox is 100% machine washable. Simply toss it in your machine to kill 99.99% of germs, bacteria, and allergens. FlatBox LunchBox: carries your lunch, not the germs!
+    </p>
+    {{#buttons 'find' '' '#shop'}}{{/buttons}}{{#buttons 'buy' '' '#find-store'}}{{/buttons}}
     </div>
-    <div class="small-12 large-6 large-pull-6 columns">
-      {{#image 'flatbox-header.png' 'FlatBox'}}{{/image}}
-    </div>
+  </div>
+  <div class="small-12 large-6 large-pull-6 columns">
+    {{> slider}}
+  </div>
 </section>
 
 <section class="row expanded">
   <div class="row">
     <h2>Lunchbox Investigation</h2>
-    <div class="small-12 medium-4 columns">
+    <div class="small-12 medium-6 large-4 columns">
       <p>Traditional lunchbags<br />have been deemed</p>
       <h3>"unhealthy"</h3>
       <h1>99.99%</h1>
       <p>of traditional lunch bags<br />tested contained</p>
       <h3>harmful bacteria.</h3>
     </div>
-    <div class="small-12 medium-4 columns">
+    <div class="small-12 medium-6 large-4 columns">
       {{#image 'toilet.svg' 'Toilet'}}{{/image}}
-      <p>" Some lunchboxes had as much bacteria as you expect to find in a</p>
-      <h3>train station toilet.</h3>
+      <p>"Some lunchboxes had<br />as much bacteria as<br />you expect to find in a</p>
+      <h2>train station toilet.</h2>
       <p>- Microbiologist Susan Whitter, PHD</p>
-      <h2>73%</h2><p>of traditional lunchbags tested contained mould.</p>
+      <h2>73%</h2>
+      <p>of traditional lunchbags<br />tested contained mould.</p>
     </div>
-    <div class="small-12 medium-4 columns end">
-      {{#image 'gma-investigates.png' 'GMA Investigates'}}{{/image}}
+    <div class="small-12 large-4 right columns">
+      <div class="responsive-embed widescreen">
+        <iframe src="https://player.vimeo.com/video/228983113" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+      </div>
     </div>
   </div>
 </section>
@@ -53,75 +42,40 @@ logos: [
 <section class="row expanded">
   <div class="row">
     <h2>Why People <span>Love FlatBox</span></h2>
-    <div class="row">
-      <div class="small-12 medium-4 columns">
-        {{#image 'washing-machine.svg' 'Washing Machine'}}{{/image}}
-        <h3>Machine Washable</h3>
-        <p>
-          usce bibendum tempus risus sit amet vestibulum. Donec hendrerit et dui sit amet ornare. Phasellus finibus odio diam, non mollis ipsum auctor sit amet. Curabitur gravida cursus nibh, vitae tempus ipsum ornare eget. Nullam vestibulum ultrices neque et placerat.
-        </p>
+    {{#each about}} {{#each this}}
+      <div class="row">
+        {{#each this}} {{#each this}}
+        <div class="small-12 medium-4 columns">
+          <img src="{{root}}assets/images/{{this.url}}" alt="{{this.alt}}" />
+          <h3>{{this.header}}</h3>
+          <p>{{this.info}}</p>
+        </div>
+        {{/each}} {{/each}}
       </div>
-      <div class="small-12 medium-4 columns">
-        {{#image 'virus.svg' 'Bacteria'}}{{/image}}
-        <h3>Keeps Bacteria Away</h3>
-        <p>
-          usce bibendum tempus risus sit amet vestibulum. Donec hendrerit et dui sit amet ornare. Phasellus finibus odio diam, non mollis ipsum auctor sit amet. Curabitur gravida cursus nibh, vitae tempus ipsum ornare eget. Nullam vestibulum ultrices neque et placerat.
-        </p>
-      </div>
-      <div class="small-12 medium-4 columns">
-        {{#image 'friendly.svg' 'Allergy-Friendly'}}{{/image}}
-        <h3>Allergy-Friendly</h3>
-        <p>
-          usce bibendum tempus risus sit amet vestibulum. Donec hendrerit et dui sit amet ornare. Phasellus finibus odio diam, non mollis ipsum auctor sit amet. Curabitur gravida cursus nibh, vitae tempus ipsum ornare eget. Nullam vestibulum ultrices neque et placerat.
-        </p>
-      </div>
-    </div>
-    <div class="row">
-      <div class="small-12 medium-4 columns">
-        {{#image 'placemat.svg' 'Placemat'}}{{/image}}
-        <h3>Turns Into a Placemat</h3>
-        <p>
-          usce bibendum tempus risus sit amet vestibulum. Donec hendrerit et dui sit amet ornare. Phasellus finibus odio diam, non mollis ipsum auctor sit amet. Curabitur gravida cursus nibh, vitae tempus ipsum ornare eget. Nullam vestibulum ultrices neque et placerat.
-        </p>
-      </div>
-      <div class="small-12 medium-4 columns">
-        {{#image 'freezing.svg' 'Freezing'}}{{/image}}
-        <h3>Heavily Insulated</h3>
-        <p>
-          usce bibendum tempus risus sit amet vestibulum. Donec hendrerit et dui sit amet ornare. Phasellus finibus odio diam, non mollis ipsum auctor sit amet. Curabitur gravida cursus nibh, vitae tempus ipsum ornare eget. Nullam vestibulum ultrices neque et placerat.
-        </p>
-      </div>
-      <div class="small-12 medium-4 columns">
-        {{#image 'trees.svg' 'Trees'}}{{/image}}
-        <h3>Eco-Friendly</h3>
-        <p>
-          usce bibendum tempus risus sit amet vestibulum. Donec hendrerit et dui sit amet ornare. Phasellus finibus odio diam, non mollis ipsum auctor sit amet. Curabitur gravida cursus nibh, vitae tempus ipsum ornare eget. Nullam vestibulum ultrices neque et placerat.
-        </p>
-      </div>
-    </div>
+    {{/each}} {{/each}}
   </div>
 </section>
 
-<section class="row expanded">
+<section id="shop" class="row expanded">
   <div class="row">
     <h2>Shop FlatBox on <span>Bed Bath & Beyond</span></h2>
     <div class="small-12 large-4 columns">
-      {{#image 'flatbox-original-closed.png' 'Original FlatBox'}}{{/image}}
+      <img src="{{root}}assets/images/flatbox-original-closed.png" onmouseover="this.src='{{root}}assets/images/flatbox-original-open.jpg'" onmouseout="this.src='{{root}}assets/images/flatbox-original-closed.png'" />
       <h3>Original FlatBox</h3>
       <p>DarkBlue/LightBlue/Red</p>
-      {{#buttons 'find'}}#{{/buttons}}{{#buttons 'buy'}}#{{/buttons}}
+      {{#buttons 'buy' 'blank' 'https://www.bedbathandbeyond.ca/store/product/flatbox-insulated-convertible-lunch-bag/3329105?Keyword=Flatbox'}}#{{/buttons}}{{#buttons 'find' '' '#find-store'}}{{/buttons}}
     </div>
     <div class="small-12 large-4 columns">
-      {{#image 'flatbox-original-open.jpg' 'Original FlatBox'}}{{/image}}
+      <img src="{{root}}assets/images/flatbox-pink-closed.jpg" onmouseover="this.src='{{root}}assets/images/flatbox-pink-open.png'" onmouseout="this.src='{{root}}assets/images/flatbox-pink-closed.jpg'" />
       <h3>Original FlatBox</h3>
       <p>HotPink/LightBlue/Green</p>
-      {{#buttons 'find'}}#{{/buttons}}{{#buttons 'buy'}}#{{/buttons}}
+      {{#buttons 'buy' 'blank' 'https://www.bedbathandbeyond.ca/store/product/flatbox-insulated-convertible-lunch-bag/3329105?Keyword=Flatbox'}}#{{/buttons}}{{#buttons 'find' '' '#find-store'}}{{/buttons}}
     </div>
     <div class="small-12 large-4 columns">
-      {{#image 'flatbox-plus.png' 'FlatBox Plus'}}{{/image}}
+      <img src="{{root}}assets/images/flatbox-plus-closed.png" onmouseover="this.src='{{root}}assets/images/flatbox-plus-open.jpg'" onmouseout="this.src='{{root}}assets/images/flatbox-plus-closed.png'" />
       <h3>FlatBox Plus</h3>
       <p>Black/Blue</p>
-      {{#buttons 'find'}}#{{/buttons}}{{#buttons 'buy'}}#{{/buttons}}
+      {{#buttons 'buy' 'blank' 'https://www.bedbathandbeyond.ca/store/product/flatbox-insulated-convertible-lunch-bag-in-black-black/1061743182?Keyword=Flatbox'}}{{/buttons}}{{#buttons 'find' '' '#find-store'}}{{/buttons}}
     </div>
   </div>
 </section>
@@ -143,18 +97,18 @@ logos: [
 
 <section class="row expanded">
   <div class="row" data-equalizer>
-    <h2>Featured <span>On</span></h2>
-    {{#each logos}}
-      <div class="columns" data-equalizer-watch>
-        <img src="assets/images/logos/{{this}}.png" alt="{{this}}" />
-      </div>
+    <h2>Featured <span>On</span></h2> {{#each logos}}
+    <div class="columns" data-equalizer-watch>
+      <img src="{{root}}assets/images/logos/{{this}}.png" alt="{{this}}" />
+    </div>
     {{/each}}
   </div>
 </section>
 
-<section class="row expanded">
+<section id="find-store" class="row expanded">
   <div class="row">
     <h2>Find FlatBox <span>In Store</span></h2>
+    <h4>*available at select store locations</h4>
     <div class="small-12 columns">
       {{#image 'store-locator.png' 'Placeholder for Store Locator'}}{{/image}}
     </div>
@@ -163,11 +117,11 @@ logos: [
 
 <section class="row expanded">
   <div class="row" data-equalizer>
-    <div class="small-12 medium-8 columns" data-equalizer-watch>
+    <div class="small-12 large-8 columns" data-equalizer-watch>
       <h2>Not finding a store near you?</h2>
     </div>
-    <div class="small-12 medium-4 columns" data-equalizer-watch>
-      {{#buttons 'buy'}}#{{/buttons}}
+    <div class="small-12 large-4 columns" data-equalizer-watch>
+      {{#buttons 'buy' '' '#shop'}}{{/buttons}}
     </div>
   </div>
 </section>
