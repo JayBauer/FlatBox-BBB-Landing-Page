@@ -2,11 +2,11 @@
  * @extends storeLocator.StaticDataFeed
  * @constructor
  */
-function MedicareDataSource() {
+function StoreLocatorDataSource() {
   $.extend(this, new storeLocator.StaticDataFeed);
 
   var that = this;
-  $.get('medicare.csv', function(data) {
+  $.get('../../data/stores.csv', function(data) {
     that.setStores(that.parse_(data));
   });
 }
@@ -16,7 +16,7 @@ function MedicareDataSource() {
  * @type {!storeLocator.FeatureSet}
  * @private
  */
-MedicareDataSource.prototype.FEATURES_ = new storeLocator.FeatureSet(
+StoreLocatorDataSource.prototype.FEATURES_ = new storeLocator.FeatureSet(
   new storeLocator.Feature('Wheelchair-YES', 'Wheelchair access'),
   new storeLocator.Feature('Audio-YES', 'Audio')
 );
@@ -24,7 +24,7 @@ MedicareDataSource.prototype.FEATURES_ = new storeLocator.FeatureSet(
 /**
  * @return {!storeLocator.FeatureSet}
  */
-MedicareDataSource.prototype.getFeatures = function() {
+StoreLocatorDataSource.prototype.getFeatures = function() {
   return this.FEATURES_;
 };
 
@@ -33,7 +33,7 @@ MedicareDataSource.prototype.getFeatures = function() {
  * @param {string} csv
  * @return {!Array.<!storeLocator.Store>}
  */
-MedicareDataSource.prototype.parse_ = function(csv) {
+StoreLocatorDataSource.prototype.parse_ = function(csv) {
   var stores = [];
   var rows = csv.split('\n');
   var headings = this.parseRow_(rows[0]);
@@ -44,15 +44,12 @@ MedicareDataSource.prototype.parse_ = function(csv) {
     features.add(this.FEATURES_.getById('Wheelchair-' + row.Wheelchair));
     features.add(this.FEATURES_.getById('Audio-' + row.Audio));
 
-    var position = new google.maps.LatLng(row.Ycoord, row.Xcoord);
-
-    var shop = this.join_([row.Shp_num_an, row.Shp_centre], ', ');
-    var locality = this.join_([row.Locality, row.Postcode], ', ');
+    var position = new google.maps.LatLng(row.lat, row.lng);
 
     var store = new storeLocator.Store(row.uuid, position, features, {
-      title: row.Fcilty_nam,
-      address: this.join_([shop, row.Street_add, locality], '<br>'),
-      hours: row.Hrs_of_bus
+      title: row.name,
+      address: this.join_([row.address, row.city, row.province], '<br>'),
+      hours: row.hours
     });
     stores.push(store);
   }
@@ -66,7 +63,7 @@ MedicareDataSource.prototype.parse_ = function(csv) {
  * @param {string} sep the separator.
  * @return {string}
  */
-MedicareDataSource.prototype.join_ = function(arr, sep) {
+StoreLocatorDataSource.prototype.join_ = function(arr, sep) {
   var parts = [];
   for (var i = 0, ii = arr.length; i < ii; i++) {
     arr[i] && parts.push(arr[i]);
@@ -81,7 +78,7 @@ MedicareDataSource.prototype.join_ = function(arr, sep) {
  * @param {string} row
  * @return {Array.<string>}
  */
-MedicareDataSource.prototype.parseRow_ = function(row) {
+StoreLocatorDataSource.prototype.parseRow_ = function(row) {
   // Strip leading quote.
   if (row.charAt(0) == '"') {
     row = row.substring(1);
@@ -104,7 +101,7 @@ MedicareDataSource.prototype.parseRow_ = function(row) {
  * @param {Array.<string>} row
  * @return {Object}
  */
-MedicareDataSource.prototype.toObject_ = function(headings, row) {
+StoreLocatorDataSource.prototype.toObject_ = function(headings, row) {
   var result = {};
   for (var i = 0, ii = row.length; i < ii; i++) {
     result[headings[i]] = row[i];

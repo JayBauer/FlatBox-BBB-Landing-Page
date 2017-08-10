@@ -1,3 +1,23 @@
+#map-canvas,
+#panel {
+  height: 500px;
+}
+
+#panel {
+  width: 300px;
+  float: left;
+  margin-right: 10px;
+}
+
+#panel .feature-filter label {
+  width: 130px;
+}
+
+p.attribution,
+p.attribution a {
+  color: #666;
+}
+
 .storelocator-panel {
   border: 1px solid #ccc;
   overflow: auto;

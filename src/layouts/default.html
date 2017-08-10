@@ -6,27 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FlatBox - Bed Bath & Beyond</title>
     <link rel="stylesheet" href="{{root}}assets/css/app.css">
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD6AMIeEo4FM3c83_SDX1OTAmGDYyXWNmE"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-    <style>
-      body { font-family: sans-serif; }
-      #map-canvas, #panel { height: 500px; }
-      #panel { width: 300px; float: left; margin-right: 10px; }
-      #panel .feature-filter label { width: 130px; }
-      p.attribution, p.attribution a { color: #666; }
-      .store .hours { color: grey; }
-    </style>
-    <script>
-      var _gaq = _gaq || [];
-      _gaq.push(['_setAccount', 'UA-12846745-20']);
-      _gaq.push(['_trackPageview']);
-
-      (function() {
-        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-        ga.src = ('https:' === document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-      })();
-    </script>
+    {{> map-scripts}}
   </head>
   <body>
     {{> header}}
