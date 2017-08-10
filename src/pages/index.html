@@ -1,11 +1,11 @@
 <section class="row expanded collapse">
   <div class="small-12 large-6 large-push-6 columns">
     <div class="row">
-    <h1>The Lunchbox Solution <br /><span>for Today's Problems.</span></h1> {{#image 'solution-ill.svg' 'Solution Illustration'}}{{/image}}
+    <h1>The Placemat<br />That <span>Packs <br />a Lunch</span></h1> {{#image 'solution-ill.svg' 'Solution Illustration'}}{{/image}}
     <p>
-      Just unzip the lunch box flat and watch it turn into a placemat in seconds, creating a germ-free barrier and clean-eating surface. Made from neoprene, FlatBox is 100% machine washable. Simply toss it in your machine to kill 99.99% of germs, bacteria, and allergens. FlatBox LunchBox: carries your lunch, not the germs!
+      FlatBox LunchBox is a placemat that "packs a lunch" wherever you go. Just unzip the lunch box flat and watch it turn into a placemat in seconds, creating a germ-free barrier and clean-eating surface. Made from neoprene, FlatBox is 100% machine washable. Simply toss it in your machine to kill 99.99% of germs, bacteria, and allergens. FlatBox LunchBox: carries your lunch, not the germs!
     </p>
-    {{#buttons 'find' '' '#shop'}}{{/buttons}}{{#buttons 'buy' '' '#find-store'}}{{/buttons}}
+      {{#buttons 'find' ''}}#shop{{/buttons}}{{#buttons 'buy' ''}}#find-store{{/buttons}}
     </div>
   </div>
   <div class="small-12 large-6 large-pull-6 columns">
@@ -15,21 +15,21 @@
 
 <section class="row expanded">
   <div class="row">
-    <h2>Lunchbox Investigation</h2>
+    <h2>What's been hiding in your lunch box?</h2>
     <div class="small-12 medium-6 large-4 columns">
-      <p>Traditional lunchbags<br />have been deemed</p>
+      <p>Traditional lunch boxes<br />have been deemed</p>
       <h3>"unhealthy"</h3>
       <h1>99.99%</h1>
-      <p>of traditional lunch bags<br />tested contained</p>
+      <p>of traditional lunch boxes<br />tested contained</p>
       <h3>harmful bacteria.</h3>
     </div>
     <div class="small-12 medium-6 large-4 columns">
       {{#image 'toilet.svg' 'Toilet'}}{{/image}}
-      <p>"Some lunchboxes had<br />as much bacteria as<br />you expect to find in a</p>
+      <p>"Some lunch boxes had<br />as much bacteria as<br />you expect to find in a</p>
       <h2>train station toilet.</h2>
       <p>- Microbiologist Susan Whitter, PHD</p>
       <h2>73%</h2>
-      <p>of traditional lunchbags<br />tested contained mould.</p>
+      <p>of traditional lunch boxes<br />tested contained mould.</p>
     </div>
     <div class="small-12 large-4 right columns">
       <div class="responsive-embed widescreen">
@@ -59,24 +59,28 @@
 <section id="shop" class="row expanded">
   <div class="row">
     <h2>Shop FlatBox on <span>Bed Bath & Beyond</span></h2>
+    {{#each shop-flatbox}}
     <div class="small-12 large-4 columns">
-      <img src="{{root}}assets/images/flatbox-original-closed.png" onmouseover="this.src='{{root}}assets/images/flatbox-original-open.jpg'" onmouseout="this.src='{{root}}assets/images/flatbox-original-closed.png'" />
-      <h3>Original FlatBox</h3>
-      <p>DarkBlue/LightBlue/Red</p>
-      {{#buttons 'buy' 'blank' 'https://www.bedbathandbeyond.ca/store/product/flatbox-insulated-convertible-lunch-bag/3329105?Keyword=Flatbox'}}#{{/buttons}}{{#buttons 'find' '' '#find-store'}}{{/buttons}}
+      <img src="{{root}}assets/images/{{this.[0]}}-closed.png" onmouseover="this.src='{{root}}assets/images/{{this.[0]}}-open.png'" onmouseout="this.src='{{root}}assets/images/{{this.[0]}}-closed.png'" />
+      <h3 data-open="{{this.[0]}}">{{this.[1]}}</h3>
+      <p>{{this.[2]}}</p>
+      {{#buttons 'buy' 'blank'}}{{this.[3]}}{{/buttons}}{{#buttons 'find' ''}}#find-store{{/buttons}}
     </div>
-    <div class="small-12 large-4 columns">
-      <img src="{{root}}assets/images/flatbox-pink-closed.jpg" onmouseover="this.src='{{root}}assets/images/flatbox-pink-open.png'" onmouseout="this.src='{{root}}assets/images/flatbox-pink-closed.jpg'" />
-      <h3>Original FlatBox</h3>
-      <p>HotPink/LightBlue/Green</p>
-      {{#buttons 'buy' 'blank' 'https://www.bedbathandbeyond.ca/store/product/flatbox-insulated-convertible-lunch-bag/3329105?Keyword=Flatbox'}}#{{/buttons}}{{#buttons 'find' '' '#find-store'}}{{/buttons}}
+    <div class="reveal large row" id="{{this.[0]}}" data-reveal>
+      <div class="small-12 medium-6 large-5 columns">
+        <button class="close-button" data-close aria-label="Close" type="button">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <img src="{{root}}assets/images/{{this.[0]}}-closed.png" />
+      </div>
+      <div class="small-12 medium-6 large-7 columns">
+        <h3>{{this.[1]}}</h3>
+        <h3>{{this.[2]}}</h3>
+        <p>{{this.[4]}}</p>
+        {{#buttons 'buy' 'blank'}}{{this.[3]}}{{/buttons}}{{#buttons 'find' ''}}#find-store{{/buttons}}
+      </div>
     </div>
-    <div class="small-12 large-4 columns">
-      <img src="{{root}}assets/images/flatbox-plus-closed.png" onmouseover="this.src='{{root}}assets/images/flatbox-plus-open.jpg'" onmouseout="this.src='{{root}}assets/images/flatbox-plus-closed.png'" />
-      <h3>FlatBox Plus</h3>
-      <p>Black/Blue</p>
-      {{#buttons 'buy' 'blank' 'https://www.bedbathandbeyond.ca/store/product/flatbox-insulated-convertible-lunch-bag-in-black-black/1061743182?Keyword=Flatbox'}}{{/buttons}}{{#buttons 'find' '' '#find-store'}}{{/buttons}}
-    </div>
+    {{/each}}
   </div>
 </section>
 
@@ -87,17 +91,15 @@
       {{#image 'circle.svg' 'Circle'}}{{/image}}
     </div>
     <div class="small-12 medium-6 large-8 columns">
-      <p>
-        usce bibendum tempus risus sit amet vestibulum. Donec hendrerit et dui sit amet ornare. Phasellus finibus odio diam, non mollis ipsum auctor sit amet. Curabitur gravida cursus nibh, vitae tempus ipsum ornare eget. Nullam vestibulum ultrices neque et placerat.
-      </p>
-      <h3>- Name of person</h3>
+      {{> testimonials}}
     </div>
   </div>
 </section>
 
 <section class="row expanded">
   <div class="row" data-equalizer>
-    <h2>Featured <span>On</span></h2> {{#each logos}}
+    <h2>Featured <span>On</span></h2>
+    {{#each logos}}
     <div class="columns" data-equalizer-watch>
       <img src="{{root}}assets/images/logos/{{this}}.png" alt="{{this}}" />
     </div>
@@ -110,7 +112,7 @@
     <h2>Find FlatBox <span>In Store</span></h2>
     <h4>*available at select store locations</h4>
     <div class="small-12 columns">
-      {{#image 'store-locator.png' 'Placeholder for Store Locator'}}{{/image}}
+      {{> store-locator}}
     </div>
   </div>
 </section>
@@ -121,7 +123,7 @@
       <h2>Not finding a store near you?</h2>
     </div>
     <div class="small-12 large-4 columns" data-equalizer-watch>
-      {{#buttons 'buy' '' '#shop'}}{{/buttons}}
+      {{#buttons 'buy' ''}}#shop{{/buttons}}
     </div>
   </div>
 </section>

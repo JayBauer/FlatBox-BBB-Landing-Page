@@ -1,0 +1,20 @@
+.reveal {
+  position:relative;
+  h3:first-of-type {
+    text-transform:uppercase;
+  }
+  a {
+    display:block;
+    margin-top:rem-calc(15);
+  }
+  button {
+    position:absolute;
+    right:rem-calc(5);
+    top:rem-calc(5);
+    width:rem-calc(30);
+    height:rem-calc(30);
+    background-color:$turq;
+    color:$white;
+    border-radius:rem-calc(5);
+  }
+}
