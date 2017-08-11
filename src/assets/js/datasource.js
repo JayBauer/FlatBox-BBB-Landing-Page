@@ -6,7 +6,7 @@ function StoreLocatorDataSource() {
   $.extend(this, new storeLocator.StaticDataFeed);
 
   var that = this;
-  $.get('../../data/stores.csv', function(data) {
+  $.get('assets/etc/stores.csv', function(data) {
     that.setStores(that.parse_(data));
   });
 }
@@ -16,17 +16,17 @@ function StoreLocatorDataSource() {
  * @type {!storeLocator.FeatureSet}
  * @private
  */
-StoreLocatorDataSource.prototype.FEATURES_ = new storeLocator.FeatureSet(
-  new storeLocator.Feature('Wheelchair-YES', 'Wheelchair access'),
-  new storeLocator.Feature('Audio-YES', 'Audio')
-);
-
-/**
- * @return {!storeLocator.FeatureSet}
- */
-StoreLocatorDataSource.prototype.getFeatures = function() {
-  return this.FEATURES_;
-};
+// StoreLocatorDataSource.prototype.FEATURES_ = new storeLocator.FeatureSet(
+//   new storeLocator.Feature('Wheelchair-YES', 'Wheelchair access'),
+//   new storeLocator.Feature('Audio-YES', 'Audio')
+// );
+//
+// /**
+//  * @return {!storeLocator.FeatureSet}
+//  */
+// StoreLocatorDataSource.prototype.getFeatures = function() {
+//   return this.FEATURES_;
+// };
 
 /**
  * @private
@@ -41,8 +41,8 @@ StoreLocatorDataSource.prototype.parse_ = function(csv) {
   for (var i = 1, row; row = rows[i]; i++) {
     row = this.toObject_(headings, this.parseRow_(row));
     var features = new storeLocator.FeatureSet;
-    features.add(this.FEATURES_.getById('Wheelchair-' + row.Wheelchair));
-    features.add(this.FEATURES_.getById('Audio-' + row.Audio));
+    // features.add(this.FEATURES_.getById('Wheelchair-' + row.Wheelchair));
+    // features.add(this.FEATURES_.getById('Audio-' + row.Audio));
 
     var position = new google.maps.LatLng(row.lat, row.lng);
 

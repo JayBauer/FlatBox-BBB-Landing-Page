@@ -1,10 +1,6 @@
-# ZURB Template
+# Jay Bauer - Foundation Starter Site
 
-[![devDependency Status](https://david-dm.org/zurb/foundation-zurb-template/dev-status.svg)](https://david-dm.org/zurb/foundation-zurb-template#info=devDependencies)
-
-**Please open all issues with this template on the main [Foundation for Sites](https://github.com/zurb/foundation-sites/issues) repo.**
-
-This is the official ZURB Template for use with [Foundation for Sites](http://foundation.zurb.com/sites). We use this template at ZURB to deliver static code to our clients. It has a Gulp-powered build system with these features:
+This is the Foundation ZURB template, bastardized and customized by Jay Bauer for use at Elite Digital. Designed to be a starting point for all non-Wordpress sites. It includes the following:
 
 - Handlebars HTML templates with Panini
 - Sass compilation and prefixing
@@ -22,50 +18,35 @@ To use this template, your computer needs:
 - [NodeJS](https://nodejs.org/en/) (0.12 or greater)
 - [Git](https://git-scm.com/)
 
-This template can be installed with the Foundation CLI, or downloaded and set up manually.
+### Installing the template via Git
 
-### Using the CLI
+This template is designed to be easily distributed through Git, using a few simple commands. This README will focus on the CLI method.
 
-Install the Foundation CLI with this command:
-
+First, the repo must be cloned:
 ```bash
-npm install foundation-cli --global
+git clone [path]
+```
+```bash
+cd [projectname]
 ```
 
-Use this command to set up a blank Foundation for Sites project with this template:
-
+After downloading the repo, run
 ```bash
-foundation new --framework sites --template zurb
+npm install
 ```
+to install the dependencies described in ```package.json```. This will take a few minutes. Afterwards, the installation should be complete and your project is ready to start.
 
-The CLI will prompt you to give your project a name. The template will be downloaded into a folder with this name.
+## Working with the CLI
 
-Now `cd` to your project name and to start your project run 
+Foundation makes use of several commands in order to streamline the development and distribution process.
 
 ```bash
 foundation watch
 ```
+- This command will map your .scss files and create a pseudo-compiled CSS file, as well as begin watching your working folders for changes. After the command runs, it will open a tab in your browser with the current build of the website. Any changes made to any tracked folders will immediately be pushed through the BrowserSync process and update the view, allowing you to see changes made in real time.
 
-### Manual Setup
-
-To manually set up the template, first download it with Git:
 
 ```bash
-git clone https://github.com/zurb/foundation-zurb-template projectname
+foundation build
 ```
-
-Then open the folder in your command line, and install the needed dependencies:
-
-```bash
-cd projectname
-npm install
-```
-
-Finally, run `npm start` to run Gulp. Your finished site will be created in a folder called `dist`, viewable at this URL:
-
-```
-http://localhost:8000
-```
-
-To create compressed, production-ready assets, run `npm run build`.
-# duckcreek-client
+- This command will properly compile and minify all your SASS files, uglify/concatenate your JS files, and optimize your images. This will be moved to a "dist" folder in the root of your project. The contents of this folder are what should ultimately be delivered to the live or staging website.

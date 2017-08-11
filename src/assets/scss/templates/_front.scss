@@ -1,6 +1,5 @@
 section {
-  // The Solution
-  &:nth-of-type(1) {
+  &#packs-a-lunch {
     position:relative;
     @include breakpoint(large) {
       img {
@@ -64,7 +63,7 @@ section {
   }
 
   // Lunchbox Investigation
-  &:nth-of-type(2) {
+  &#lunchbox-investigation {
     @include background-cover('bacteria-bg.jpg');
     min-height:rem-calc(500);
     color:$white;
@@ -126,7 +125,7 @@ section {
   }
 
   // Why People Love FlatBox
-  &:nth-of-type(3) {
+  &#about-flatbox {
     margin-top:rem-calc(50);
     @include breakpoint(small only) {
       text-align:center;
@@ -154,11 +153,11 @@ section {
   }
 
   // Shop FlatBox
-  &:nth-of-type(4) {
+  &#shop {
     text-align:center;
     .column {
       img {
-        height:rem-calc(400);
+        max-height:rem-calc(400);
       }
     }
     h3 {
@@ -189,7 +188,7 @@ section {
   }
 
   // Testimonials
-  &:nth-of-type(5) {
+  &#testimonials {
     @include background-cover('testimonials-bg.jpg');
     margin-top:rem-calc(140);
     color:$white;
@@ -230,7 +229,7 @@ section {
   }
 
   // Featured On
-  &:nth-of-type(6) {
+  &#featured {
     h2 {
       margin:rem-calc(50) 0 0 0;
     }
@@ -253,8 +252,8 @@ section {
     }
   }
 
-  // Store location
-  &:nth-of-type(7) {
+  // Store Locator
+  &#find-store {
     text-align:center;
     h2 {
       margin-bottom:rem-calc(10);
@@ -266,7 +265,7 @@ section {
   }
 
   // No store near you
-  &:nth-of-type(8) {
+  &#no-store {
     @include background-cover('store-near-bg.png');
     position:relative;
     h2 {
