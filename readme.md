@@ -22,19 +22,14 @@ To use this template, your computer needs:
 
 This template is designed to be easily distributed through Git, using a few simple commands. This README will focus on the CLI method.
 
-First, the repo must be cloned:
+First, the repo must be cloned and dependencies installed:
 ```bash
-git clone [path]
-```
-```bash
-cd [projectname]
-```
-
-After downloading the repo, run
-```bash
+git clone git@github.com:JayBauer/FoundationZURBCustom.git
+cd FoundationZURBCustom
 npm install
 ```
-to install the dependencies described in ```package.json```. This will take a few minutes. Afterwards, the installation should be complete and your project is ready to start.
+
+This will install the dependencies described in ```package.json```. Your project is now ready to start.
 
 ## Working with the CLI
 
@@ -43,10 +38,35 @@ Foundation makes use of several commands in order to streamline the development 
 ```bash
 foundation watch
 ```
-- This command will map your .scss files and create a pseudo-compiled CSS file, as well as begin watching your working folders for changes. After the command runs, it will open a tab in your browser with the current build of the website. Any changes made to any tracked folders will immediately be pushed through the BrowserSync process and update the view, allowing you to see changes made in real time.
+- This command will look through your SASS files and create a CSS map rather than spend time compiling and minifying a production-ready CSS file, as well as begin watching your working folders for changes. After the command runs, it will open a tab in your browser with the current build of the website. Any changes made to any tracked folders will immediately be pushed through the BrowserSync process and update the view, allowing you to see changes made in real time.
 
 
 ```bash
 foundation build
 ```
 - This command will properly compile and minify all your SASS files, uglify/concatenate your JS files, and optimize your images. This will be moved to a "dist" folder in the root of your project. The contents of this folder are what should ultimately be delivered to the live or staging website.
+
+### Styles
+
+* `assets/scss/app.scss`: Make imports for all your styles here. Comment out unnecessary modules.
+* `assets/scss/global/*.scss`: Global settings.
+* `assets/scss/components/*.scss`: Buttons etc.
+* `assets/scss/modules/*.scss`: Navbar, footer etc.
+* `assets/scss/templates/*.scss`: Page template specific styling
+
+
+### Scripts
+
+* `assets/js/`: Location for all your custom JS files. These will be minified and concatenated to one ```app.js``` file in production.
+* `assets/js/app.js`: Has options to import all Foundation modules, or to customize them via the ```lib``` folder. The latter is recommended.
+* `assets/js/lib/foundation-explicit-pieces.js`: Comment out any Foundation modules that are not in use to save project filesize.
+
+
+## Some things to watch out for
+- HTTP file server is required to serve files to Javascript, for security purposes. This will not work on localhost, which is the default server location for this setup. If a proper HTTP server is not available, a Python server can be run using the following command, assuming Python is installed on the host machine:
+```bash
+python -m SimpleHTTPServer
+```
+This will start a server on port 8000 that is able to properly serve files. This command should be run from inside the ```dist``` folder, after creating a production build.
+
+- Webpack/Babel will compile all JS files and require "use strict". If you are getting any unexplained errors in your custom Javascript files that you are only getting once Webpack gets ahold of them, this is where you should look.
