@@ -9,3 +9,7 @@ window.$ = $;
 import './lib/foundation-explicit-pieces';
 
 $(document).foundation();
+
+$('a[href$="#"]').click(function(e) {
+  e.preventDefault();
+});

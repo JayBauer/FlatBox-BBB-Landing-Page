@@ -106,7 +106,7 @@ function sanitizeHTML(strings) {
 }
 
 function initMap() {
-  var locations = getData('assets/js/stores.csv');
+  var locations = getData('assets/etc/stores.csv');
 
   var markers = new Array();
   var map = new google.maps.Map(document.getElementById('map-canvas'), {
@@ -145,11 +145,8 @@ function initMap() {
       infoWindow.open(map, currentLocationMark);
       map.setCenter(currentLocation);
       map.setZoom(6);
+      $('#map-locator p').replaceWith('<p>You have been successfully located!</p>');
     });
-    $('#map-locator').append('<p>You have been successfully located.</p>');
-  }
-  else {
-    $('#map-locator').append('<p>Location not found.</p>');
   }
 
   for (var i = 0; i < locations.length; i++) {
@@ -171,10 +168,10 @@ function initMap() {
     }
     const content = sanitizeHTML`
       <div class="map-infoWindow">
-        <p><i class="fa fa-home"></i><b>Address:</b><br />${name}<br />${address}, ${city} ${state}</p>
+        <p><i class="fa fa-home"></i><b>Address:</b><br />${name}<br />${address}<br />${city} ${state}</p>
         <p><i class="fa fa-phone"></i><b>Phone:</b> ${phone}</p>
         <p><a href="${directions}" target="_blank"><i class="fa fa-arrow-right"></i> <b>Directions</b></a></p>
-        <p><img src="https://maps.googleapis.com/maps/api/streetview?size=150x120&location=${lat},${lng}&key=${apiKey}"></p>
+        <!--<p><img src="https://maps.googleapis.com/maps/api/streetview?size=150x120&location=${lat},${lng}&key=${apiKey}"></p>-->
       </div>
     `;
 
@@ -184,7 +181,7 @@ function initMap() {
       <i class="fa fa-phone"></i><span><b>Phone:</b> ${phone}</span><br />
       <i class="fa fa-arrow-right"><span></i><a href="${directions}" target="_blank">Directions</a></span>
     `;
-    $('#map-panel ul').append('<li><a class="marker-link" data-markerid="'+uuid+'" href="#">'+listItem+'</a></li>');
+    $('#map-panel ul').append('<li class="marker-link" data-markerid="'+uuid+'" href="#">'+listItem+'</li>');
 
     const marker = new google.maps.Marker({
       id:uuid,
@@ -208,3 +205,5 @@ function initMap() {
     return false;
   });
 }
+
+window.initMap = initMap;

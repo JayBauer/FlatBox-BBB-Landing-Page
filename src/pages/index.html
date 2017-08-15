@@ -32,10 +32,20 @@
       <p>of traditional lunch boxes<br />tested contained mould.</p>
     </div>
     <div class="small-12 large-4 right columns">
+      <div class="responsive-embed widescreen hide-for-large">
+        <iframe src="https://player.vimeo.com/video/228983113" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+      </div>
+      <div class="responsive-embed widescreen show-for-large" data-open="gma-investigates">
+        <a href="#">
+          {{#image 'gma-investigates.png' 'GMA Investigates'}}{{/image}}
+        </a>
+      </div>
+      <p>As seen on ABC News, Good Morning America</p>
+    </div>
+    <div id="gma-investigates" class="reveal" data-reveal data-full-screen="false" data-reset-on-close="true">
       <div class="responsive-embed widescreen">
         <iframe src="https://player.vimeo.com/video/228983113" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
       </div>
-      <p>As seen on ABC News, Good Morning America</p>
     </div>
   </div>
   <a href="#about-flatbox" class="tab"><i class="fa fa-arrow-down"></i></a>
@@ -63,8 +73,10 @@
     <h2>Shop FlatBox on <span>Bed Bath & Beyond</span></h2>
     {{#each shop-flatbox}}
     <div class="small-12 large-4 columns">
-      <img src="{{root}}assets/images/{{this.[0]}}-closed.jpg" onmouseover="this.src='{{root}}assets/images/{{this.[0]}}-open.jpg'" onmouseout="this.src='{{root}}assets/images/{{this.[0]}}-closed.jpg'" />
-      <h3 data-open="{{this.[0]}}">{{this.[1]}}</h3>
+      <a href="#" data-open="{{this.[0]}}">
+        <img src="{{root}}assets/images/{{this.[0]}}-closed.jpg" onmouseover="this.src='{{root}}assets/images/{{this.[0]}}-open.jpg'" onmouseout="this.src='{{root}}assets/images/{{this.[0]}}-closed.jpg'" />
+        <h3>{{this.[1]}}</h3>
+      </a>
       <p>{{this.[2]}}</p>
       {{#buttons 'buy' 'blank'}}{{this.[3]}}{{/buttons}}{{#buttons 'find' ''}}#find-store{{/buttons}}
     </div>

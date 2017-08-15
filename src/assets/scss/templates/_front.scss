@@ -9,7 +9,7 @@ section {
     .columns {
       @include breakpoint(large) {
         min-height:rem-calc(500);
-        height:calc(100vh - 225px);
+        height:calc(100vh - 150px);
       }
       &:nth-of-type(1) {
         position:relative;
@@ -111,8 +111,11 @@ section {
         }
       }
       &:nth-of-type(3) {
+        cursor:pointer;
         p {
+          font-size:0.7rem;
           text-align:center;
+          padding:rem-calc(20) 0 rem-calc(30) 0;
         }
       }
     }
@@ -161,6 +164,7 @@ section {
       margin:rem-calc(15);
       text-transform:uppercase;
       position:relative;
+      color:$black;
       cursor:pointer;
       &:after {
         position:absolute;
@@ -192,7 +196,7 @@ section {
     text-align:center;
     position:relative;
     h2 {
-      margin:rem-calc(50) 0 rem-calc(30) 0;
+      margin:rem-calc(30) 0 rem-calc(30) 0;
     }
     img {
       margin:0 auto;
@@ -207,6 +211,9 @@ section {
       span {
         font-size:0.6em;
       }
+    }
+    ul {
+      overflow:visible;
     }
     .row {
       max-width:rem-calc(800);
@@ -251,59 +258,6 @@ section {
     h4 {
       text-transform:none;
       font-weight:400;
-    }
-    #map-panel {
-      height:rem-calc(500);
-    }
-    ul {
-      list-style-type:none;
-      text-align:left;
-      height:rem-calc(500);
-      overflow:auto;
-    }
-    li {
-      padding:rem-calc(10) 0;
-      &:hover {
-        background-color:$medium-gray;
-      }
-      &:not(:last-child) {
-        border-bottom:2px solid $medium-gray;
-      }
-      i {
-        color:$yellow;
-      }
-      span {
-        padding-left:rem-calc(10);
-      }
-      a {
-        color:$black;
-        &:nth-of-type(2) {
-          text-decoration:underline;
-          color:$dark-gray;
-        }
-      }
-    }
-    .row .row:first-of-type {
-      margin-bottom:rem-calc(20);
-      color:$white;
-      background-color:$blue;
-      border-radius:10px;
-      position:relative;
-      p {
-        margin:rem-calc(10) 0;
-      }
-    }
-    .map-infoWindow {
-      text-align:left;
-      p {
-        margin:0;
-        a {
-          color:$black;
-        }
-      }
-      i {
-        padding-right:rem-calc(5);
-      }
     }
   }
 

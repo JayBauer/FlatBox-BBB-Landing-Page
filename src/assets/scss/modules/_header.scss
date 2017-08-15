@@ -1,5 +1,8 @@
 header {
   height:rem-calc(225);
+  @include breakpoint(large) {
+    margin-bottom:rem-calc(-75);
+  }
   text-align:center;
   @include breakpoint(800) {
     background:url('../images/corner-ill.svg') no-repeat top left;

@@ -14,9 +14,8 @@ function getData(url) {
 function parseCSV(csv) {
   var stores = [];
   var rows = csv.split('\n');
-  var headings = this.parseRow(rows[0]);
   for (var i=1, row; row=rows[i]; i++) {
-    row = this.parseRow_(row);
+    row = parseRow(row);
     stores.push(row);
   }
   return stores;
@@ -32,3 +31,5 @@ function parseRow(row) {
   row = row.split(',');
   return row;
 };
+
+window.getData = getData;

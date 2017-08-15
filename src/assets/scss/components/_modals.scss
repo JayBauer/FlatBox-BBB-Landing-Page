@@ -1,7 +1,9 @@
 .reveal {
   position:relative;
+  padding:rem-calc(50) 0;
   h3:first-of-type {
     text-transform:uppercase;
+    margin:0 0 rem-calc(25) 0;
   }
   a {
     display:block;
@@ -16,5 +18,10 @@
     background-color:$turq;
     color:$white;
     border-radius:rem-calc(5);
+  }
+  &#gma-investigates {
+    padding:0;
+    height:auto;
+    min-height:auto;
   }
 }
