@@ -110,23 +110,20 @@ section {
           margin:rem-calc(10) 0 0 0;
         }
       }
+      &:nth-of-type(3) {
+        p {
+          text-align:center;
+        }
+      }
     }
-    &::after {
-      $size:100;
-      position:absolute;
-      @include center-x();
-      bottom:rem-calc(-($size/2.5));
-      width:rem-calc($size);
-      height:rem-calc($size);
-      border-radius:#{$size}px;
-      background-color:$turq;
-      z-index:-1;
+    .tab {
+      @include tabs(100,$turq,after);
     }
   }
 
   // Why People Love FlatBox
   &#about-flatbox {
-    margin-top:rem-calc(50);
+    margin:rem-calc(50) 0;
     @include breakpoint(small only) {
       text-align:center;
     }
@@ -190,7 +187,7 @@ section {
   // Testimonials
   &#testimonials {
     @include background-cover('testimonials-bg.jpg');
-    margin-top:rem-calc(140);
+    margin:rem-calc(140) 0 rem-calc(50) 0;
     color:$white;
     text-align:center;
     position:relative;
@@ -206,25 +203,17 @@ section {
     }
     h3 {
       margin:rem-calc(20) 0 0 0;
-      text-align:right;
+      text-align:left;
       span {
         font-size:0.6em;
       }
     }
     .row {
       max-width:rem-calc(800);
-      margin:rem-calc(75) 0;
+      margin:rem-calc(75) auto;
     }
-    &::before {
-      $size:100;
-      position:absolute;
-      @include center-x();
-      top:rem-calc(-($size/2.5));
-      width:rem-calc($size);
-      height:rem-calc($size);
-      border-radius:#{$size}px;
-      background-color:$yellow;
-      z-index:-1;
+    .tab {
+      @include tabs(100,$yellow,before);
     }
   }
 
@@ -254,6 +243,7 @@ section {
 
   // Store Locator
   &#find-store {
+    margin:rem-calc(50) 0 rem-calc(100) 0;
     text-align:center;
     h2 {
       margin-bottom:rem-calc(10);
@@ -261,6 +251,59 @@ section {
     h4 {
       text-transform:none;
       font-weight:400;
+    }
+    #map-panel {
+      height:rem-calc(500);
+    }
+    ul {
+      list-style-type:none;
+      text-align:left;
+      height:rem-calc(500);
+      overflow:auto;
+    }
+    li {
+      padding:rem-calc(10) 0;
+      &:hover {
+        background-color:$medium-gray;
+      }
+      &:not(:last-child) {
+        border-bottom:2px solid $medium-gray;
+      }
+      i {
+        color:$yellow;
+      }
+      span {
+        padding-left:rem-calc(10);
+      }
+      a {
+        color:$black;
+        &:nth-of-type(2) {
+          text-decoration:underline;
+          color:$dark-gray;
+        }
+      }
+    }
+    .row .row:first-of-type {
+      margin-bottom:rem-calc(20);
+      color:$white;
+      background-color:$blue;
+      border-radius:10px;
+      position:relative;
+      p {
+        margin:rem-calc(10) 0;
+      }
+    }
+    .map-infoWindow {
+      text-align:left;
+      p {
+        margin:0;
+        a {
+          color:$black;
+        }
+      }
+      i {
+        padding-right:rem-calc(5);
+      }
     }
   }
 

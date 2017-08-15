@@ -1,5 +1,6 @@
 google.maps.event.addDomListener(window, 'load', function() {
   var map;
+  var currentLocation;
   map = new google.maps.Map(document.getElementById('map-canvas'), {
     center: new google.maps.LatLng(43.653226, -79.3831843),
     zoom: 11,
@@ -7,14 +8,20 @@ google.maps.event.addDomListener(window, 'load', function() {
   });
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(function(position) {
-      var pos = {
+      currentLocation = {
         lat: position.coords.latitude,
         lng: position.coords.longitude
       };
-      map.setCenter(pos);
+      map.setCenter(currentLocation);
     },
     function() {
       handleLocationError(true, infoWindow, map.getCenter());
+      var currentLocationMark = new google.maps.Marker({
+        position:currentLocation,
+        map:map,
+        title:'You are here',
+        icon:'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png'
+      });
     });
   }
   else {

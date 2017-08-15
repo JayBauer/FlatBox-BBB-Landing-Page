@@ -7,12 +7,14 @@
     <title>FlatBox - Bed Bath & Beyond</title>
     <link rel="stylesheet" href="{{root}}assets/css/app.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-    {{> map-scripts}}
   </head>
   <body>
     {{> header}}
     {{> body}}
     {{> footer}}
     <script src="{{root}}assets/js/app.js"></script>
+    <script src="{{root}}assets/js/parser.js"></script>
+    <script src="{{root}}assets/js/store-locator.js"></script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD6AMIeEo4FM3c83_SDX1OTAmGDYyXWNmE&callback=initMap"></script>
   </body>
 </html>
