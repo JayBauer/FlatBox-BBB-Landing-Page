@@ -7,7 +7,7 @@ module.exports = function(type,target,options) {
     markup += 'class="yellow-button"><h4>Buy Online!</h4></a>'
   }
   if (type == 'find') {
-    markup += 'class="green-button""><h4>Find a Store!</h4></a>'
+    markup += 'class="green-button"><h4>Find a Store!</h4></a>'
   }
   return markup;
 }

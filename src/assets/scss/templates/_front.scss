@@ -42,7 +42,7 @@ section {
         }
       }
       &:nth-of-type(2) {
-        background:url('../images/main-ill.svg') no-repeat left bottom;
+        background:url('../images/background-main.png') no-repeat left bottom;
         background-size:contain;
         @include breakpoint(medium down) {
           height:rem-calc(500);
@@ -190,7 +190,7 @@ section {
 
   // Testimonials
   &#testimonials {
-    @include background-cover('testimonials-bg.jpg');
+    @include background-cover('testimonials-bg.png');
     margin:rem-calc(140) 0 rem-calc(50) 0;
     color:$white;
     text-align:center;
@@ -212,15 +212,12 @@ section {
         font-size:0.6em;
       }
     }
-    ul {
-      overflow:visible;
-    }
     .row {
       max-width:rem-calc(800);
       margin:rem-calc(75) auto;
     }
     .tab {
-      @include tabs(100,$yellow,before);
+      @include tabs(100,$blue,before);
     }
   }
 
